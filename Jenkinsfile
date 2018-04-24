@@ -4,14 +4,10 @@ pipeline {
         maven 'MVN'
     }
     stages {
-        stage('Clean') {
+        stage('01 - Test'){
             steps {
-               sh 'mvn clean'
-            }
-        }
-        stage('Test'){
-            steps {
-                sh 'mvn test'
+                git url: 'https://github.com/kidh0/argentum-web'
+                sh 'mvn clean test'
             }
         }
         stage('Package') {
