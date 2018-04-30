@@ -3,9 +3,6 @@ pipeline {
     tools {
         maven 'MVN'
     }
-    environment {
-        TOMCAT_CREDS = credentials('jenkins')
-    }
     stages {
         stage('01 - Test'){
             steps {
@@ -19,7 +16,7 @@ pipeline {
                 git url: 'https://github.com/kidh0/argentum-web'
                 sh 'mvn package'
             }
-        } 
+        }
         stage('03 - Deploy') {
             environment {
                 TOMCAT_CREDS = credentials('tomcat-credentials')
