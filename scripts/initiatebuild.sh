@@ -1,5 +1,3 @@
-#!bin/sh
-
 echo $1 $2
 pwd
 mkdir -p $1
